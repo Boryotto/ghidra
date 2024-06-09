@@ -240,7 +240,7 @@ def process_event(self, listener, event):
             return True
         if lldb.SBWatchpoint.EventIsWatchpointEvent(event):
             btype = lldb.SBWatchpoint.GetWatchpointEventTypeFromEvent(event)
-            bpt = lldb.SBWatchpoint.GetWatchpointFromEvent(eventt)
+            bpt = lldb.SBWatchpoint.GetWatchpointFromEvent(event)
             if btype is lldb.eWatchpointEventTypeAdded:
                 return on_watchpoint_added(bpt)
             if btype is lldb.eWatchpointEventTypeCommandChanged:
